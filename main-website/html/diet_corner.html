@@ -1,0 +1,642 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="ainimate.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+<link rel="shortcut icon" type="image/png" href="https://img.icons8.com/bubbles/48/000000/restaurant.png">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style type="text/css">
+		*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: #d4dce312
+}
+.swal2-popup {
+	font-size: 1.6rem !important;
+}
+.swal2-icon {
+	width: 5em !important;
+	height: 5em !important;
+	border-width: .25em !important;
+}
+
+.nav-cta {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.nav-cta__open-nav {
+	background: white;
+	border: none;
+	cursor: pointer;
+	padding: 1em;
+	outline: none;
+}
+.nav-cta__btn-line {
+	background: black;
+	border-radius: 5em;
+	height: 0.145em;
+	margin: 0.45em 0;
+	width: 2.15em;
+}
+
+.navbar {
+	background: #000;
+	height: 100%;
+	padding: 4em;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: all 300ms ease;
+	-webkit-transform: translatex(25em);
+					transform: translatex(25em);
+	visibility: hidden;
+	width: 25em;
+}
+.navbar--is-visible {
+	-webkit-transform: translatex(0);
+					transform: translatex(0);
+	visibility: visible;
+}
+.navbar__close-nav {
+	background: none;
+	border: none;
+	cursor: pointer;
+	height: 3em;
+	position: absolute;
+	right: 1em;
+	top: 1em;
+	width: 3em;
+	outline: none;
+}
+.navbar__close-nav:hover .navbar__btn-line {
+	-webkit-transform: rotate(0deg);
+					transform: rotate(0deg);
+					outline: none;
+}
+.navbar__btn-line {
+	background: #fff;
+	height: 0.1em;
+	transition: all 300ms ease;
+	width: 1.75em;
+}
+.navbar__btn-line--1 {
+	-webkit-transform: rotate(45deg) translate(2px, 1px);
+					transform: rotate(45deg) translate(2px, 1px);
+}
+.navbar__btn-line--2 {
+	-webkit-transform: rotate(-45deg);
+					transform: rotate(-45deg);
+}
+.navbar__company-title {
+	color: #fff;
+	letter-spacing: 0.125em;
+	text-transform: uppercase;
+}
+.navbar__list {
+	list-style: none;
+	margin: 4em 0 0 0;
+	padding: 0;
+}
+.navbar__item {
+	margin: 1.5em 0;
+}
+.navbar__link {
+	align-items: center;
+	color: #fff;
+	display: flex;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 0.14em;
+	text-decoration: none!important;
+	text-transform: uppercase;
+}
+.navbar__link:hover{
+	color: #03A678
+}
+.navbar__link::after {
+	background: #fff;
+	content: "";
+	display: inline-block;
+	height: 0.125em;
+	margin-left: 1em;
+	transition: all 100ms ease;
+	-webkit-transform: scalex(0);
+					transform: scalex(0);
+	-webkit-transform-origin: 0 0;
+					transform-origin: 0 0;
+	width: 2em;
+}
+.navbar__link:hover::after {
+	-webkit-transform: scalex(1);
+					transform: scalex(1);
+}
+
+table tr td{
+	border: none!important;
+}
+th{
+border:2px groved orange;	
+}
+
+footer {
+		background-color: #06b060c9;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+}
+
+.contain {
+		position: relative;
+		margin: 0 auto;
+		width: 94%;
+		max-width: 800px;
+		text-align: center;
+}
+
+.content {
+		position: relative;
+		padding: 25px;
+		color: #F5F7F7;
+		font-weight: 80;
+		letter-spacing: 0.4px;
+		line-height: 30px;
+}
+
+.content p {
+		font-weight: 80;
+		color: #F5F7F7;
+		letter-spacing: 0.40px;
+		font-size: 1.18em;
+		line-height: 25px;
+		text-align: center;
+}
+
+.nav {
+		max-width: 350px;
+		padding: 20px 0;
+		margin: 0 auto;
+}
+
+a.btn {
+		padding: 15px 30px;
+		border-radius: 50px;
+		background-color: #03A678;
+		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+		color: #fff;
+		text-decoration: none;
+		transition: background-color 0.5s ease 0s;
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 0.6px;
+}
+
+a.btn:hover {
+		background-color: #2ECC71;
+}
+
+
+*,*:after,*::before {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+nav a {
+	position: relative;
+	display: inline-block;
+	margin: 15px 25px;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 1.35em;
+}
+
+nav a:hover,
+nav a:focus {
+	outline: none;
+}
+
+
+/* Effect 15: scale down, reveal */
+.cl-effect-15 a {
+	color: rgba(0,0,0,0.2);
+	font-weight: 700;
+	text-shadow: none;
+	text-decoration: none;
+}
+
+.cl-effect-15 a::before {
+	color: #fff;
+	content: attr(data-hover);
+	position: absolute;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.cl-effect-15 a:hover::before,
+.cl-effect-15 a:focus::before {
+	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	transform: scale(0.9);
+	opacity: 0;
+}
+
+.color-3{
+	margin: 3vh auto;
+	padding: 5em 3em;
+	text-align: center;
+}
+
+.color-3 {
+	background: #2ac56c;
+} 
+
+</style>
+
+</head>
+<body>
+	<nav class="nav-cta">
+	<button class="js--open-nav nav-cta__open-nav animated tada delay-2s slow">
+		<div class="nav-cta__btn-line"></div>
+		<div class="nav-cta__btn-line"></div>
+		<div class="nav-cta__btn-line"></div>
+	</button>
+</nav>
+
+<nav class="js--navbar navbar" style="z-index: 100">
+	<h2 class="navbar__company-title">Diet Corner</h2>
+	<button id="close" class="js--close-nav navbar__close-nav">
+		<div class="navbar__btn-line navbar__btn-line--1"></div>
+		<div class="navbar__btn-line navbar__btn-line--2"></div>
+	</button>
+	<ul class="navbar__list navbar__list--nav">
+		<li class="navbar__item">
+			<a href="../index.html" class="navbar__link">Home</a>
+		</li>
+		<li class="navbar__item">
+			<a href="gymhp.html" class="navbar__link">fitness club</a>
+		</li>
+		<li class="navbar__item">
+			<a href="gym.html" class="navbar__link">fitvid</a>
+		</li>
+		<li class="nlogged" class="navbar__item">
+			<a href="login.html" class="navbar__link">log in</a>
+		</li>
+		<li class="nlogged"  class="navbar__item">
+			<a href="signup.html" class="navbar__link">sign up</a>
+		</li>
+		<li class="logged logout" style="display: none;" class="navbar__item">
+			<a href="#" class="navbar__link">logout</a>
+		</li>
+	</ul>
+	
+</nav>
+<div class="container text-center" style="margin-bottom: 5vh;">
+	<h1 style="margin-top:8vh;margin-bottom:0;padding:0" class="animated  bounce slow">Diet corner</h1>
+	<p style="margin:0;padding:0;letter-spacing: 5px;word-spacing: 5px" class="animated bounceInUp fast"> place to find best diet</p>
+</div>
+<div class="container" style="padding: 10px;margin-bottom: 20px">
+	<h1>What is a balanced diet?</h1>
+	<p style="font-size: 1.6rem;text-align: justify;"> Balanced diet is one which provides all the nutrients in required amounts and proper proportions. It can easily be achieved through a blend of the four basic food groups. The quantities of foods needed to meet the nutrient requirements vary with age, gender, physiological status and physical activity. A balanced diet should provide around 50-60% of total calories from carbohydrates, preferably from complex carbohydrates, about 10-15% from proteins and 20-30% from both visible and invisible fat. 
+
+In addition, a balanced diet should provide other non-nutrients such as dietary fibre, antioxidants and phytochemicals which bestow positive health benefits. Antioxidants such as vitamins C and E, beta-carotene, riboflavin and selenium protect the human body from free radical damage. Other phytochemicals such as polyphenols, flavones, etc., also afford protection against oxidant damage. Spices like turmeric, ginger, garlic, cumin and cloves are rich in antioxidants. </p>
+</div>
+<div class="container">
+	<div class="col-lg-6" style="padding: 0;">
+		<h2>Why do we need nutritionally adequate food?</h2>	
+		<p style="text-align: justify;font-size: 1.5rem">Nutrients that we obtain through food have vital effects on physical growth and development, maintenance of normal body function, physical activity and health. Nutritious food is, thus needed to sustain life and activity. Our diet must provide all essential nutrients in the required amounts. Requirements of essential nutrients vary with age, gender, physiological status and physical activity. Dietary intakes lower or higher than the body requirements can lead to under nutrition (deficiency diseases) or over nutrition (diseases of affluence) respectively. Eating too little food during certain significant periods of life such as infancy, childhood, adolescence, pregnancy and lactation and eating too much at any age can lead to harmful consequences. An adequate diet, providing all nutrients, is needed throughout our lives. The nutrients must be obtained through a judicious choice and combination of a variety of foodstuffs from different food groups. 
+		</p>
+	</div>
+<div class="col-lg-6">
+	<img src="../res/img/imageedit_13_2100033607.png" class="img-responsive animated fadeIn slower" style="">
+</div>
+<!--src="appetizer-bowls-cuisine-1640770.jpg"-->
+	<!-- Modal -->
+	<div class="modal fade" id="carbohydrates" role="dialog">
+		<div class="modal-dialog">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Carbohydrates</h4>
+				</div>
+				<div class="modal-body">
+					<p style="text-align: justify;">Carbohydrates are either simple or complex, and are major sources of energy in all human diets. They provide energy of 4 Kcal/g. The simple carbohydrates, glucose and fructose, are found in fruits, vegetables and honey, sucrose in sugar and lactose in milk, while the complex polysaccharides are starches in cereals, millets, pulses and root vegetables and glycogen in animal foods. The other complex carbohydrates which are resistant to digestion in the human digestive tract are cellulose in vegetables and whole grains, and gums and pectins in vegetables, fruits and cereals, which constitute the dietary fibre component. In India, 70-80% of total dietary calories are derived from carbohydrates present in plant foods such as cereals, millets and pulses. Dietary fibre delays and retards absorption of carbohydrates and fats and increases the satiety value. Diets rich in fibre reduce glucose and lipids in blood and increase the bulk of the stools. Diets rich in complex carbohydrates are healthier than low-fibre diets based on refined and processed foods.</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+<!-- Modal -->
+	<div class="modal fade" id="protiens" role="dialog">
+		<div class="modal-dialog">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Protiens</h4>
+				</div>
+				<div class="modal-body">
+					<p style="text-align: justify;">Proteins are primary structural and functional components of every living cell. Almost half the protein in our body is in the form of muscle and the rest of it is in bone, cartilage and skin. Proteins are complex molecules composed of different amino acids. Certain amino acids which are termed “essential”, have to be obtained from proteins in the diet since they are not synthesized in the human body. Other nonessential amino acids can be synthesized in the body to build proteins. Proteins perform a wide range of functions and also provide energy (4 Kcal/g). Protein requirements vary with age, physiological status and stress. More proteins are required by growing infants and children, pregnant women and individuals during infections and illness or stress. Animal foods like milk, meat, fish and eggs and plant foods such as pulses and legumes are rich sources of proteins. </p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+<!-- Modal -->
+	<div class="modal fade" id="fats" role="dialog">
+		<div class="modal-dialog">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Fats</h4>
+				</div>
+				<div class="modal-body">
+					<p style="text-align: justify;">Oils and fats such as butter, ghee and vanaspathi constitute dietary visible fats. Fats are a concentrated source of energy providing 9 Kcal/g, and are made up of fatty acids in different proportions. Dietary fats are derived from two sources viz. the invisible fat present in plant and animal foods; and the visible or added fats and oils (cooking oil). Fats serve as a vehicle for fat-soluble vitamins like vitamins A, D, E and K and carotenes and promote their absorption. They are also sources of essential polyunsaturated fatty acids. It is necessary to have adequate and good quality fat in the diet with sufficient polyunsaturated fatty acids in proper proportions for meeting the requirements of essential fatty acids (Refer chapter 7). The type and quantity of fat in the daily diet influence the level of cholesterol and triglycerides in the blood. Diets should include adequate amounts of fat particularly in the case of infants and children, to provide concentrated energy since their energy needs per kg body weight are nearly twice those of adults. Adults need to be cautioned to restrict intake of saturated fat (butter, ghee and hydrogenated fats) and cholesterol (red meat, eggs, organ meat). Excess of these substances could lead to obesity, diabetes, cardiovascular disease and cancer.</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- Modal -->
+	<div class="modal fade" id="vitamins" role="dialog">
+		<div class="modal-dialog">
+		
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Vitamins and Minerals</h4>
+				</div>
+				<div class="modal-body">
+					<p style="text-align: justify;">Vitamins are chemical compounds required by the body in small amounts. They must be present in the diet as they cannot be synthesized in the body. Vitamins are essential for numerous body processes and for maintenance of the structure of skin, bone, nerves, eye, brain, blood and mucous membrane. They are either water soluble or fat-soluble. Vitamins A, D, E and K are fat-soluble, while vitamin C, and the B-complex vitamins such as thiamin (B ), 1 riboflavin (B ), niacin, pyridoxine (B ), folic 2 6 acid and cyanocobalamin (B ) are water- 12 soluble. Pro-vitamin like beta-carotene is converted to vitamin A in the body. Fat-soluble vitamins can be stored in the body while water-soluble vitamins are not and get easily excreted in urine. Vitamins B-complex and C are heat labile vitamins and are easily destroyed by heat, air or during drying, cooking and food processing. 
+
+					Minerals are inorganic elements found in body fluids and tissues. The important macro minerals are sodium, potassium, calcium, phosphorus, magnesium and sulphur, while zinc, copper, selenium, molybdenum, fluorine, cobalt, chromium and iodine are micro minerals. They are required for maintenance and integrity of skin, hair, nails, blood and soft tissues. They also govern nerve cell transmission, acid/base and fluid balance, enzyme and hormone activity as well as the blood- clotting processes.</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<section class="color-3 container">
+				<nav class="cl-effect-15">
+					<a href="#" data-hover="carbohydrates" data-toggle="modal" data-target="#carbohydrates">carbohydrates</a>
+					<a href="#" data-hover="protiens" data-toggle="modal" data-target="#protiens">protiens</a>
+					<a href="#" data-hover="fats" data-toggle="modal" data-target="#fats">fats</a>
+					<a href="#" data-hover="minerals" data-toggle="modal" data-target="#vitamins">minerals</a>
+				</nav>
+</section>
+
+<div class="jumbotron container" style="background:none;margin-bottom:0;">
+	<h2>What exactly is a balanced diet for kids?</h2>
+	<p style="font-weight:lighter;font-size: 1.2em;" >Food and drink provide the energy and nutrients that a young child needs to grow and thrive. We look at what exactly a balanced diet for kids is. 
+
+A healthy child is a happy child, which makes healthy eating a top priority. Food and drink provide the energy and nutrients that a young child needs to grow and thrive. Compared to adults, children need more nutritious foods for their size to support growth, develop bones, build muscle and provide the energy needed to actively explore the world.
+</p>
+</div><!--
+<div class="container-fluid" style="z-index: -1;position: fixed;">
+	<img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="img-responsive">
+</div>-->
+<div  class="container" style="box-sizing: border-box;padding: 0;">
+	<div class="col-lg-6"><img class="img-responsive" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"></div>
+	<div class="col-lg-6" style="padding-top:20px">
+		<h3 class="col-lg-12" style="padding:0;margin-top: 0!important;">Forming the foundation for good eating habits</h3>
+<p class="col-lg-12" style="padding:0;font-size: 1.7rem;font-weight: lighter;text-align: justify;">What a child eats in their early years can have lifelong consequences on their eating habits, either good or bad. As your child begins to establish their own relationship with food, it is important to set the scene for healthy eating habits at a young age.Picky eaters, children with food allergies,children on restricted diets, like vegan diets, and sick children with poor appetites have a higher risk for undernutrition. Worldwide, 40-67% of parents and caregivers report experiencing feeding difficulties with their children, which shows that many children – even those in loving and caring households – are at risk of growth faltering.Food provides more than just nutrition: it is also important for hand-eye co-ordination and skills, physical growth, strong bones, improved concentration at school and healthier sleep patterns.</p>
+</div>
+</div>
+<div class="container" style="margin-top: 1vh;padding: 1vh">
+	<h3 class="text-center">Required Amount For Different Age Groups</h3>
+<div class="table-responsive">
+<table class="table ">
+	<thead>
+		<tr>
+			<th>Age group</th>
+			<th>Calories</th>
+			<th>Protein</th>
+			<th>Fruits</th>
+			<th>Vegetables</th>
+			<th>Grains</th>
+			<th>Dairy</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="background-color: #06b06036">2-3 years</td>
+			<td>1,000-1,400</td>
+			<td style="background-color: #06b06036">2-4 ounces</td>
+			<td>1-1.5 cups</td>
+			<td style="background-color: #06b06036">1-1.5 cups</td>
+			<td>3-5 ounces</td>
+			<td style="background-color: #06b06036">2 cups</td>
+		</tr>
+		<tr>
+			<td style="background-color: #06b06036">4-8 years</td>
+			<td>1,200-2,000</td>
+			<td style="background-color: #06b06036">3-5.5 ounces</td>
+			<td>1-2 cups</td>
+			<td style="background-color: #06b06036">1.5-2.5 cups</td>
+			<td>4-6 ounces</td>
+			<td style="background-color: #06b06036">2.5 cups</td>
+		</tr>
+		<tr>
+			<td style="background-color: #06b06036">9-13 years</td>
+			<td>1,600-2,600</td>
+					<td style="background-color: #06b06036">5-6.5 ounces</td>
+					<td>1.5-2 cups</td>
+					<td style="background-color: #06b06036">2-3.5 cups</td>
+					<td>5-9 ounces</td>
+					<td style="background-color: #06b06036">3 cups</td>
+		</tr>
+		<tr>
+			<td style="background-color: #06b06036">14-18 years</td>
+			<td>2,000-3,200</td>
+						<td style="background-color: #06b06036">5.5-7 ounces</td>
+						<td>2-2.5 cups</td>
+						<td style="background-color: #06b06036">2.5-4 cups</td>
+						<td>6-10 ounces</td>
+						<td style="background-color: #06b06036">3 cups</td>
+		</tr>
+	</tbody>
+</table>
+	</div>
+</div>
+<div class="container text-center">
+</div>
+<div class="container">
+	<h2>How much should a child eat</h2>
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<a href="#collapse1" data-toggle="collapse" style="background-color: transparent;text-decoration: none;color: black">
+					<h4 class="panel-title">
+							Carbohydrates<span class="glyphicon glyphicon-chevron-down" style="float: right;"></span>
+					</h4>
+				</a>
+			</div>
+			<div id="collapse1" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>Include complex and minimally processed carbohydrates in your child’s diet. These include:
+				<ul>
+					<li>Wholegrain high fibre bread</li>
+					<li>Brown rice</li>
+					<li>Wholewheat pasta</li>
+					<li>Oats</li>
+				</ul>
+				Sugar is part of the carbohydrate macronutrient group. It has little nutritional value, yet contains a lot of energy. Sugar should be limited in a child’s diet, either as added sugar or as part of sugar-rich foods and treats like cakes, soft drinks and sugary cereals. These foods tend to also be naturally high in undesirable saturated fats and salt.
+			</p>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<a href="#collapse2" data-toggle="collapse" style="background-color: transparent;text-decoration: none;color: black">
+					<h4 class="panel-title">
+							Protein<span class="glyphicon glyphicon-chevron-down" style="float: right;"></span>
+					</h4>
+				</a>
+			</div>
+			<div id="collapse2" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>Protein provides the building blocks for muscle, growth and a healthy immune system.  Protein rich foods include:
+				<ul>
+					<li>Fish</li>
+					<li>Chicken</li>
+					<li>Lean red meat</li>
+					<li>Eggs,Dairy,Plant proteins such as lentils, beans and chickpeas.</li>
+				</ul>
+				Aim to eat fish at least three times a week and include mostly fatty fish such as salmon, pilchards and herring. Eggs are an easy and cost-effective protein, and dairy is rich in bone-building calcium.
+			</p>
+		</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<a href="#collapse3" data-toggle="collapse" style="background-color: transparent;text-decoration: none;color: black">
+					<h4 class="panel-title">
+							Fats<span class="glyphicon glyphicon-chevron-down" style="float: right;"></span>
+					</h4>
+				</a>
+			</div>
+			<div id="collapse3" class="panel-collapse collapse">
+				<div class="panel-body">
+					<p>Include healthy fats in your child’s diet. These include:
+				<ul>
+					<li>Avocado</li>
+					<li>Olives</li>
+					<li>Nuts and their oils.</li>
+				</ul>
+				Benefits of healthy fats 
+					<ol>
+						<li>This macronutrient group contains more energy than carbohydrates and protein.</li>
+						<li>Fats provide fat-soluble vitamins A, D, E and K. Monounsaturated fats (avos, olives, nuts and nut butters) are healthier than saturated fatty acids (butter, cream, bacon and fatty meat), as they protect the heart and improve how the body’s cells function.</li>
+						<li>These fats also keep the immune system strong and provide essential fatty acids for healthy eyes and brain development.</li>
+					</ol>
+			</p>
+		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer>
+		<div class="content">
+				<div class="contain">
+						<h1>Diet corner</h1>
+						<p>©Stay Active 2019</p>
+				</div>
+		</div>
+</footer>
+<script type="text/javascript">
+
+const btnOpenNav = document.querySelector(".js--open-nav");
+const btnCloseNav = document.querySelector(".js--close-nav");
+const navbar = document.querySelector(".js--navbar");
+
+btnOpenNav.addEventListener("click", () => {
+	navbar.classList.add("navbar--is-visible");
+});
+
+btnCloseNav.addEventListener("click", () => {
+	navbar.classList.remove("navbar--is-visible");
+});
+
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="../plugins/swal/swal.css">
+<script src="../plugins/swal/swal2.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+<script>
+	// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyB635hrvJuYQ06nHNO0V07gGDhO5FK8fEg",
+			authDomain: "wt-stay-active.firebaseapp.com",
+			databaseURL: "https://wt-stay-active.firebaseio.com",
+			projectId: "wt-stay-active",
+			storageBucket: "wt-stay-active.appspot.com",
+			messagingSenderId: "889505387559"
+		};
+		firebase.initializeApp(config);
+
+
+		firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				$(".nlogged").hide();
+				$(".logged").show();
+			}
+			else {
+				$(".logged").hide();
+				$(".nlogged").show();
+			}
+		});
+
+
+		$(".logout").click(function(event) {
+			firebase.auth().signOut();
+			Swal({
+				type: "info",
+				title: "You Are Now Logged Out!" ,
+				timer: 1500,
+				allowOutsideClick: false,
+				allowEscapeKey: false,
+				showConfirmButton: false,
+			});
+			setTimeout(function() {
+				$("#close").trigger('click');
+			}, 1500);
+		});
+</script>
+</body>
+</html>

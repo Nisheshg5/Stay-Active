@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../css/profile.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/swal/swal.css">
+	<style>
+		.swal2-popup {
+			font-size: 1.6rem !important;
+		}
+		.swal2-icon {
+			width: 5em !important;
+			height: 5em !important;
+			border-width: .25em !important;
+		}
+	</style>
+</head>
+<body class="">
+
+<div class="page-wrapper">
+	<div class="main">
+		<div class="main-inner">
+			<div class="container">
+				<div class="row">
+
+
+
+
+
+
+					<div class="col-sm-4 col-lg-3">
+						<div class="sidebar">
+							<div class="widget">
+								<div class="user-photo">
+									<a id="upload" style="cursor: pointer;">
+										<img id="proimg" src="../res/img/defaultProfilePic.png" alt="User Photo">
+										<span id="upload" class="user-photo-action">Click here to reupload</span>
+									</a>
+								</div><!-- /.user-photo -->
+							</div><!-- /.widget -->
+							<div class="widget">
+								<ul class="menu-advanced">
+									<li id="pro" class="active"><a><i class="fa fa-user"></i> Edit Profile</a></li>
+									<li id="pas" ><a><i class="fa fa-key"></i> Password</a></li>
+									<li id="verifyemail" style="display: none;" ><a><i class="fa fa-envelope"></i> Verify Email</a></li>
+									<li id="logout"><a><i class="fa fa-sign-out"></i> Logout</a></li>
+									<li id="deleteuser"><a><i class="fa fa-remove" style="color: red"></i> Delete Account</a></li>
+								</ul>
+							</div><!-- /.widget -->
+
+						</div><!-- /.sidebar -->
+					</div><!-- /.col-* -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+					<div class="col-sm-8 col-lg-9">
+						<div class="content" id="profile">
+							<div class="page-title">
+								<h1>Edit Profile</h1>
+							</div><!-- /.page-title -->
+
+							<div class="background-white p20 mb30">
+								<h3 class="page-title">
+									Contact Information
+
+									<a id="savecon" href="#" class="btn btn-primary btn-xs pull-right">Save</a>
+								</h3>
+
+								<div class="row">
+									<div class="form-group col-sm-6">
+										<label>Name</label>
+										<input id="name" type="text" class="form-control" placeholder="John">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-6">
+										<label>Age</label>
+										<input id="age" type="number" class="form-control" placeholder="18">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-6">
+										<label>Username</label>
+										<input id="uname" type="text" class="form-control" placeholder="abcxyz123">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-6">
+										<label>Phone</label>
+										<input id="mno" type="text" class="form-control" placeholder="123-456-789">
+									</div><!-- /.form-group -->
+								</div><!-- /.row -->
+							</div>
+
+							<div class="background-white p20 mb30">
+								<h3 class="page-title">
+									Social Connections
+
+									<a id="savesoc" href="#" class="btn btn-primary btn-xs pull-right">Save</a>
+								</h3>
+
+								<div class="form-horizontal">
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Facebook</label>
+
+										<div class="col-sm-9">
+											<input id="fb" type="text" class="form-control" placeholder="http://facebook.com/">
+										</div><!-- /.col-* -->
+									</div><!-- /.form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Twitter</label>
+
+										<div class="col-sm-9">
+											<input id="tw" type="text" class="form-control" placeholder="http://twitter.com/">
+										</div><!-- /.col-* -->
+									</div><!-- /.form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Linkedin</label>
+
+										<div class="col-sm-9">
+											<input id="ln" type="text" class="form-control" placeholder="http://linkedin.com/">
+										</div><!-- /.col-* -->
+									</div><!-- /.form-group -->
+
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Instagram</label>
+
+										<div class="col-sm-9">
+											<input id="in" type="text" class="form-control" placeholder="http://instagram.com/">
+										</div><!-- /.col-* -->
+									</div><!-- /.form-group -->
+								</div><!-- /.form-inline -->
+							</div><!-- /.background-white -->
+
+							<div class="background-white p20 mb30">
+								<h3 class="page-title">
+									Address
+
+									<a id="saveadd" href="#" class="btn btn-primary btn-xs pull-right">Save</a>
+								</h3>
+
+								<div class="row">
+									<div class="form-group col-sm-4">
+										<label>Country</label>
+										<input id="country" type="text" class="form-control" placeholder="USA">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-4">
+										<label>State</label>
+										<input id="state" type="text" class="form-control" placeholder="New York">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-4">
+										<label>City</label>
+										<input id="city" type="text" class="form-control" placeholder="New York City">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-6">
+										<label>Street</label>
+										<input id="street" type="text" class="form-control" placeholder="Everton Eve">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-3">
+										<label>House Number</label>
+										<input id="houseno" type="text" class="form-control" placeholder="123">
+									</div><!-- /.form-group -->
+
+									<div class="form-group col-sm-3">
+										<label>ZIP</label>
+										<input id="zip" type="text" class="form-control" placeholder="12345">
+									</div><!-- /.form-group -->
+								</div><!-- /.row -->
+							</div>
+
+							<div class="background-white p20 mb30">
+								<h3 class="page-title">
+									Health Tasks
+
+									<a id="saveheta" href="#" class="btn btn-primary btn-xs pull-right">Save</a>
+								</h3>
+
+								<textarea id="healthtask" class="form-control" rows="7"></textarea>
+							</div>
+						</div><!-- /.content -->
+
+
+
+
+
+
+
+						<div class="content" id="pass" style="display: none;">
+							<div class="page-title">
+								<h1>Change Password</h1>
+							</div><!-- /.page-title -->
+
+							<form method="post" action="?">
+								<div class="form-group">
+									<label for="login-form-password-retype">New password</label>
+									<input id="p1" placeholder="********" type="password" class="form-control" name="password" id="login-form-password-retype">
+								</div><!-- /.form-group -->
+
+								<div class="form-group">
+									<label for="login-form-password-retype">Confirm password</label>
+									<input id="p2" placeholder="********" type="password" class="form-control" name="password" id="login-form-password-retype">
+								</div><!-- /.form-group -->
+
+								<button id="changepass" type="button" class="btn btn-primary pull-right">Change</button>
+							</form>
+						</div><!-- /.content -->
+
+
+					</div><!-- /.col-* -->
+				</div><!-- /.row -->
+			</div><!-- /.container -->
+		</div><!-- /.main-inner -->
+	</div><!-- /.main -->
+</div><!-- /.page-wrapper -->
+
+
+<script src="https://use.fontawesome.com/5a6032b936.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../plugins/swal/swal2.js"></script>
+<script>
+	Swal({
+		type: "info",
+		title: "Loading Profile" ,
+		text: 'Please Wait!',
+		allowOutsideClick: false,
+		allowEscapeKey: false,
+		showConfirmButton: false,
+	})
+	$(document).ready(function() {
+		if ($("#pro").hasClass('active')) {
+			$("#pass").hide('fast');
+			$("#profile").show('fast');
+		}
+		if ($("#pas").hasClass('active')) {
+			$("#pass").show('fast');
+			$("#profile").hide('fast');
+		}
+		$("#pro").click(function(e) {
+			$("#pro").addClass('active');
+			$("#pas").removeClass('active');
+			$("#pass").hide('fast', function() {
+				$("#profile").show('fast');
+			});
+		});
+		$("#pas").click(function(e) {
+			$("#pas").addClass('active');
+			$("#pro").removeClass('active');
+			$("#profile").hide('fast', function() {
+				$("#pass").show('fast');
+			});
+		});
+	});
+</script>
+
+
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-storage.js"></script>
+
+	<script>
+		// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyB635hrvJuYQ06nHNO0V07gGDhO5FK8fEg",
+				authDomain: "wt-stay-active.firebaseapp.com",
+				databaseURL: "https://wt-stay-active.firebaseio.com",
+				projectId: "wt-stay-active",
+				storageBucket: "wt-stay-active.appspot.com",
+				messagingSenderId: "889505387559"
+			};
+			firebase.initializeApp(config);
+			var firestore = firebase.firestore();
+
+
+
+
+
+		// Add a real-time listner
+			firebase.auth().onAuthStateChanged(user => {
+				if (user) {
+					console.log(user);
+					var docRef = firestore.collection("users").doc(user.uid);
+
+					// Data
+						docRef.get().then(function(doc) {
+							if (doc.exists) {
+								$("#name").val(doc.data().name);
+								$("#uname").val(doc.data().username);
+								$("#age").val(doc.data().age);
+								$("#mno").val(doc.data().mno);
+								$("#fb").val(doc.data().facebook);
+								$("#tw").val(doc.data().twitter);
+								$("#ln").val(doc.data().linkedin);
+								$("#in").val(doc.data().instagram);
+								$("#country").val(doc.data().country);
+								$("#state").val(doc.data().state);
+								$("#city").val(doc.data().city);
+								$("#street").val(doc.data().street);
+								$("#houseno").val(doc.data().houseno);
+								$("#zip").val(doc.data().zip);
+								$("#healthtask").val(doc.data().healthtask);
+
+								console.log("Document data:", doc.data());
+								setTimeout(function() {swal.close();}, 1000);
+							} else {
+								// doc.data() will be undefined in this case
+								console.log("No such document!");
+							}
+						}).catch(function(error) {
+							console.log("Error getting document:", error);
+							if (error == " Error: Failed to get document because the client is offline.") {
+								swal({
+									type: 'error',
+									title: 'Slow Network Detected',
+									html: 'Please try again later <br>Redirecting to home page',
+								});
+								setTimeout(function() {window.location = "../index.html"}, 3000);
+							}
+						});
+
+
+					// Profile Pic
+						var storageRef = firebase.storage().ref();
+						var imageRef = storageRef.child('users/'+firebase.auth().currentUser.uid+"ProfilePic.jpg");
+						imageRef.getDownloadURL().then(function(url) {
+							$("#proimg").attr('src', url);
+						}).catch(function(error) {
+						});
+
+					// Check If Email Is Verified
+						console.log("Email Is Verified: "+ firebase.auth().currentUser.emailVerified);
+						if (firebase.auth().currentUser.emailVerified == true) {
+							$("#verifyemail").hide('fast');
+						}
+						else
+							$("#verifyemail").show('fast');
+
+
+
+
+					//Save Buttons
+
+						// Contact Information
+						
+						$("#savecon, #savesoc, #saveadd, #saveheta").click(function() {
+							var thi = $(this).attr('id');
+							(async function getPassword () {
+								const {value: password} = await Swal.fire({
+									title: 'Enter your password To Save The Changes',
+									input: 'password',
+									inputPlaceholder: 'Enter your password',
+									inputAttributes: {
+										maxlength: 50,
+										autocapitalize: 'off',
+										autocorrect: 'off'
+									}
+								})
+								if (password) {
+									Swal({
+										type: "info",
+										title: "Processing" ,
+										text: 'Please Wait!',
+										allowOutsideClick: false,
+										allowEscapeKey: false,
+										showConfirmButton: false,
+									})
+									var credentials = firebase.auth.EmailAuthProvider.credential(
+										user.email,
+										password
+									);
+									user.reauthenticateAndRetrieveDataWithCredential(credentials).then(function() {
+										// User re-authenticated.
+										if (thi == "savecon") {
+											contact_update(user, docRef);
+										}
+										else if (thi == "savesoc") {
+											social_update(user, docRef);
+										}
+										else if (thi == "saveadd") {
+											address_update(user, docRef);
+										}
+										else if (thi == "saveheta") {
+											health_task_update(user, docRef);
+										}
+									}).catch(function(error) {
+										Swal({
+											type: "error",
+											title: "Could Not Be Reauthenticated" ,
+											text: ''+error,
+											timer: 5000,
+											showConfirmButton: true,
+										});
+									});
+								}
+							})()
+						});
+
+
+					// Change Password
+
+						$("#changepass").click(function(event) {
+							if ($("#p1").val().trim().length < 6) {
+								Swal({
+									type: "warning",
+									title: "Password Too Short" ,
+									html: 'Please Enter A Different Password',
+									timer: 3000,
+									showConfirmButton: true,
+								});
+							}
+							else if ($("#p1").val().trim() != $("#p2").val().trim()) {
+								Swal({
+									type: "warning",
+									title: "Password Do Not Match" ,
+									html: 'Please Check The Password',
+									timer: 3000,
+									showConfirmButton: true,
+								});
+							}
+							else {
+								(async function getPassword () {
+									const {value: password} = await Swal.fire({
+										title: 'Enter your password To Confirm',
+										input: 'password',
+										inputPlaceholder: 'Enter your password',
+										inputAttributes: {
+											maxlength: 50,
+											autocapitalize: 'off',
+											autocorrect: 'off'
+										}
+									})
+									if (password) {
+										Swal({
+											type: "info",
+											title: "Processing" ,
+											text: 'Please Wait!',
+											allowOutsideClick: false,
+											allowEscapeKey: false,
+											showConfirmButton: false,
+										})
+										var credentials = firebase.auth.EmailAuthProvider.credential(
+											user.email,
+											password
+										);
+										user.reauthenticateAndRetrieveDataWithCredential(credentials).then(function() {
+											// User re-authenticated.
+											user.updatePassword($("#p1").val().trim()).then(function() {
+												// Update successful.
+												Swal({
+													type: "success",
+													title: "Password Changed Succesfully" ,
+													html: 'Please Login Again.',
+													timer: 3000,
+													showConfirmButton: true,
+												});
+												firebase.auth().signOut();
+												setTimeout(function() {window.location = "login.html"}, 3000);
+											}).catch(function(error) {
+												// An error happened.
+												Swal({
+													type: "error",
+													title: "Password Could Not Be Changed" ,
+													html: 'Error: '+ error,
+													timer: 5000,
+													showConfirmButton: true,
+												});
+											});
+										}).catch(function(error) {
+											Swal({
+												type: "error",
+												title: "Could Not Be Reauthenticated" ,
+												text: ''+error,
+												timer: 5000,
+												showConfirmButton: true,
+											});
+										});
+									}
+								})()
+							}
+						});
+
+
+					// Verify Email
+
+						$("#verifyemail").click(function(event) {
+							/* Act on the event */
+							user.sendEmailVerification().then(function() {
+								console.log("Email Sent");
+								Swal({
+									type: "success",
+									title: "Verification Email Sent" ,
+									html: 'Please Click On The Link Sent To Verify Your Email ',
+									timer: 3000,
+									showConfirmButton: false,
+								})
+							}).catch(function(error) {
+								Swal({
+									type: "error",
+									title: "Verification Email Could Not Be Sent" ,
+									text: ''+error,
+									timer: 3000,
+									showConfirmButton: true,
+								})
+							});
+						});
+
+
+
+
+
+
+
+					// Upload Profile Pic
+						
+						$("#upload").click(function(event) {
+							(async function getImage () {
+								const {value: file} = await Swal.fire({
+									title: 'Select image',
+									input: 'file',
+									inputAttributes: {
+										'accept': 'image/*',
+										'aria-label': 'Upload your profile picture'
+									}
+								})
+
+								if (file) {
+									if (file.name.match(/\.([^\.]+)$/)[1] == "jpg") {
+										console.log(file.size);
+										if (file.size/1024 > 1024) {
+											Swal({
+												type: "warning",
+												title: "Max File Size: 1 Mb" ,
+												html: "Please try again!",
+												timer: 3000,
+												allowOutsideClick: false,
+												allowEscapeKey: false,
+												showConfirmButton: false,
+											});
+										}
+										else {
+											const reader = new FileReader
+											reader.onload = (e) => {
+												Swal.fire({
+													title: 'Your uploaded picture',
+													text: "Are you sure you want this to be your new profile pic?",
+													imageUrl: e.target.result,
+													imageAlt: 'The uploaded picture',
+													confirmButtonColor: '#3085d6',
+													cancelButtonColor: '#d33',
+													showCancelButton: true,
+													confirmButtonText: 'Yes!',
+													cancelButtonText: 'No!'
+												}).then((result) => {
+													if (result.value) {
+
+														Swal({
+															type: "info",
+															title: "Uploading" ,
+															html: 'Please Wait!',
+															allowOutsideClick: false,
+															allowEscapeKey: false,
+															showConfirmButton: false,
+														})
+
+														// Create a storage reference
+														var storageRef = firebase.storage().ref('users/'+firebase.auth().currentUser.uid + 'ProfilePic.jpg');
+
+														// Upload File
+														var task = storageRef.put(file);
+
+														// Update progress bar
+														task.on('state_changed', 
+
+															function progress(snapshot) {
+																var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+																console.log("Bytes transferred: "+ snapshot.bytesTransferred + "	Percentage Completed: " + percentage + "%");
+																$("#swal2-content").html("Please Wait <br> " + (Math.round((snapshot.bytesTransferred/1024) * 100) / 100)  + "/" + (Math.round((snapshot.totalBytes/1024) * 100) / 100) + " Kb transferred (" + Math.round(percentage * 100)/100 +"%)");
+															},
+															
+															function error(err) {
+																Swal({
+																	type: "error",
+																	title: "Profile Pic could not be changed!" ,
+																	text: ''+error,
+																	timer: 5000,
+																	showConfirmButton: true,
+																});
+																console.log("Error:" + err.message);
+															},
+
+															function complete() {
+																console.log("Image Uploaded");
+																Swal({
+																	type: "success",
+																	title: "Profile Pic changed succesfully" ,
+																	timer: 3000,
+																	showConfirmButton: true,
+																});
+																var storageRef = firebase.storage().ref();
+																var imageRef = storageRef.child('users/'+firebase.auth().currentUser.uid+"ProfilePic.jpg");
+																imageRef.getDownloadURL().then(function(url) {
+																	$("#proimg").attr('src', url);
+																});
+															}
+														);
+													}
+												})
+											}
+											reader.readAsDataURL(file)
+										}
+									}
+									else {
+										Swal({
+											type: "warning",
+											title: "Only jpg Photos Are Allowed" ,
+											timer: 3000,
+											allowOutsideClick: false,
+											allowEscapeKey: false,
+											showConfirmButton: false,
+										});
+									} 
+								}
+							})()
+						/*
+							var storageRef = firebase.storage().ref();
+							var imageRef = storageRef.child('users/'+firebase.auth().currentUser.uid+"ProfilePic.jpg");
+							imageRef.getDownloadURL().then(function(url) {
+								$("img").attr('src', url);
+							});*/
+						});
+
+
+
+
+
+
+
+					
+					// Delete User
+						$("#deleteuser").click(function(event) {
+							(async function getPassword () {
+								const {value: password} = await Swal.fire({
+									title: 'Enter your password to permanently delete your account',
+									input: 'password',
+									inputPlaceholder: 'Enter your password',
+									inputAttributes: {
+										maxlength: 50,
+										autocapitalize: 'off',
+										autocorrect: 'off'
+									}
+								})
+								if (password) {
+									Swal({
+										type: "info",
+										title: "Processing" ,
+										text: 'Please Wait!',
+										allowOutsideClick: false,
+										allowEscapeKey: false,
+										showConfirmButton: false,
+									})
+									var credentials = firebase.auth.EmailAuthProvider.credential(
+										user.email,
+										password
+									);
+									user.reauthenticateAndRetrieveDataWithCredential(credentials).then(function() {
+										// User re-authenticated.
+
+										imageRef.delete().then(function() {
+											data_and_user_delete(user, docRef);
+
+										}).catch(function(error) {
+											if (error.code == 'storage/object-not-found') {
+												data_and_user_delete(user, docRef);
+											}
+											else {
+												Swal({
+													type: "error",
+													title: "Profile pic could not be deleted." ,
+													html: '' + error.message,
+													timer: 3000,
+													allowOutsideClick: false,
+													allowEscapeKey: false,
+													showConfirmButton: false,
+												});
+											}
+										});
+										
+									}).catch(function(error) {
+										Swal({
+											type: "error",
+											title: "Could Not Be Reauthenticated" ,
+											text: ''+error,
+											timer: 5000,
+											showConfirmButton: true,
+										});
+									});
+								}
+							})()
+						});
+
+
+
+
+				}
+				else {
+					console.log("Not Logged In");
+					setTimeout(function() {
+						Swal({
+							type: "error",
+							title: "Not Logged In." ,
+							html: 'Please Login First! <br> Redirecting...',
+							timer: 3000,
+							allowOutsideClick: false,
+							allowEscapeKey: false,
+							showConfirmButton: false,
+						});
+					}, 3000);
+					setTimeout(function() {window.location = "login.html";}, 5000);
+				}
+			});
+
+
+		function contact_update(user, docRef) {
+			user.updateProfile({displayName: $("#name").val().trim()});
+			user.updateProfile({phoneNumber: $("#mno").val().trim()});
+			docRef.update({
+				name: $("#name").val().trim(),
+				username: $("#uname").val().trim(),
+				mno: $("#mno").val().trim(),
+				age: $("#age").val().trim()
+			}).then(function() {
+				Swal({
+					type: "success",
+					title: "Wrote Data Succesfully" ,
+					timer: 2000,
+					showConfirmButton: true,
+				});
+				console.log("wrote data with success");
+			}).catch(function(error) {
+				Swal({
+					type: "error",
+					title: "Wrote Data With Failure" ,
+					text: ''+error,
+					timer: 5000,
+					showConfirmButton: true,
+				});
+				return false;
+			});
+		}
+
+		function social_update(user, docRef) {
+			docRef.update({
+				facebook: $("#fb").val().trim(),
+				twitter: $("#tw").val().trim(),
+				linkedin: $("#ln").val().trim(),
+				instagram: $("#in").val().trim()
+			}).then(function() {
+				Swal({
+					type: "success",
+					title: "Wrote Data Succesfully" ,
+					timer: 2000,
+					showConfirmButton: true,
+				});
+				console.log("wrote data with success");
+			}).catch(function(error) {
+				Swal({
+					type: "error",
+					title: "Wrote Data With Failure" ,
+					text: ''+error,
+					timer: 5000,
+					showConfirmButton: true,
+				});
+				return false;
+			});
+		}
+
+		function address_update(user, docRef) {
+			docRef.update({
+				country: $("#country").val().trim(),
+				state: $("#state").val().trim(),
+				city: $("#city").val().trim(),
+				street: $("#street").val().trim(),
+				houseno: $("#houseno").val().trim(),
+				zip: $("#zip").val().trim()
+			}).then(function() {
+				Swal({
+					type: "success",
+					title: "Wrote Data Succesfully" ,
+					timer: 2000,
+					showConfirmButton: true,
+				});
+				console.log("wrote data with success");
+			}).catch(function(error) {
+				Swal({
+					type: "error",
+					title: "Wrote Data With Failure" ,
+					text: ''+error,
+					timer: 5000,
+					showConfirmButton: true,
+				});
+				return false;
+			});
+		}
+
+		function health_task_update(user, docRef) {
+			docRef.update({
+				healthtask: $("#healthtask").val().trim()
+			}).then(function() {
+				Swal({
+					type: "success",
+					title: "Wrote Data Succesfully" ,
+					timer: 2000,
+					showConfirmButton: true,
+				});
+				console.log("wrote data with success");
+			}).catch(function(error) {
+				Swal({
+					type: "error",
+					title: "Wrote Data With Failure" ,
+					text: ''+error,
+					timer: 5000,
+					showConfirmButton: true,
+				});
+				return false;
+			});
+		}
+
+
+		function data_and_user_delete(user, docRef) {
+			firestore.collection("users").doc(user.uid).delete().then(function() {
+				console.log("Document successfully deleted!");
+				user.delete().then(function() {
+					console.log("User deleted");
+					Swal({
+						type: "success",
+						title: "Account Deleted" ,
+						text: 'Redirecting To Home Page...',
+						timer: 3000,
+						showConfirmButton: false,
+						allowOutsideClick: false,
+						allowEscapeKey: false,
+					});
+					setTimeout(function() {window.location = "../index.html"}, 3000);
+				}).catch(function(error) {
+					console.log("An error happened during removing account. "+error);
+					Swal({
+						type: "error",
+						title: "Couldn't delete account" ,
+						text: ''+error,
+						timer: 5000,
+						allowOutsideClick: false,
+						allowEscapeKey: false,
+						showConfirmButton: true,
+					});
+				});
+			}).catch(function(error) {
+				console.error("Error removing document: ", error);
+				Swal({
+					type: "error",
+					title: "Data couldn't be deleted" ,
+					text: ''+error,
+					timer: 5000,
+					showConfirmButton: true,
+				});
+			});
+		}
+
+
+
+
+
+
+
+
+
+
+
+		// LogOut
+			$(document).ready(function() {
+				$("#logout").click(function(event) {
+					firebase.auth().signOut();
+					Swal({
+						type: "info",
+						title: "You Are Now Logged Out!" ,
+						html: 'Redirecting To Home Page...',
+						timer: 3000,
+						allowOutsideClick: false,
+						allowEscapeKey: false,
+						showConfirmButton: false,
+					});
+					setTimeout(function() {window.location = "../index.html"}, 3000);
+				});
+			});
+	</script>
+</body>
+</html>

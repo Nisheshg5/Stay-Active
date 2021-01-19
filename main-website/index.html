@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Home -stay Acitve</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="shortcut icon" type="image/png" href="https://img.icons8.com/nolan/64/000000/dumbbell.png">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css" integrity="sha384-Mmxa0mLqhmOeaE8vgOSbKacftZcsNYDjQzuCOm6D02luYSzBG8vpaOykv9lFQ51Y" crossorigin="anonymous">
+	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/docs.theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style2.css">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Faster+One');
+	@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+* {
+	outline: none;
+	border: none;
+	padding: 0;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+.search-form {
+	position: relative;
+	width: 300px;
+}
+
+.search-form:before {
+	content: ' ';
+	position: absolute;
+	left: 25px;
+	top: 14px;
+	width: 2px;
+	height: 36px;
+	transform: scale(0);
+	z-index: 1;
+	transition: all 0.5s cubic-bezier(.87, -.41, .19, 1.44);
+}
+
+.active:before {
+	transform: scale(1);
+	transition-delay: 0.3s;
+	animation: 0.6s cubic-bezier(.87, -.41, .19, 1.44) 0.5s infinite forwards focus;
+}
+
+input.binput {
+	border-radius: 36px;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	transition: all 0.5s cubic-bezier(.87, -.41, .19, 1.44);
+	background: red
+}
+
+.active input {
+	width: 100%;
+	padding-left: 25px;
+	border-radius: 36px;
+}
+
+button#bmib {
+	background: orange;
+	position: absolute;
+	height: 100%;
+	border-radius: 50%;
+	width: 64px;
+	height: 64px;
+	transition: all 0.5s cubic-bezier(.87, -.41, .19, 1.44);
+}
+
+button#bmib:after {
+	content: ' ';
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	left: 0;
+	right: 0;
+	transform: translateY(-50%);
+	margin: 0 auto;
+	background: rgb(254, 111, 117);
+	border-radius: 50%;
+}
+
+button#bmib:before {
+	content: ' ';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	left: 0;
+	right: 0;
+	top: 20px;
+	transform: scale(0);
+	transform-origin: left top;
+	margin: 0 auto;
+	background: white;
+	border-radius: 50%;
+	z-index: 1;
+	transition: all 0.8s ease;
+}
+
+.active button {
+	transform: translateX(240px);
+}
+
+.active button:before {
+	transform: scale(1);
+}
+
+.focus:before {
+	transform: scale(0);
+	animation: none;
+}
+
+@keyframes focus {
+	0 {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.transition,form .question label, form .question input[type="text"] {
+	-moz-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+	-o-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+	-webkit-transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+	transition: all 0.25s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+}
+
+* {
+	font-family: Helvetica, sans-serif;
+	font-weight: light;
+	-webkit-font-smoothing: antialiased;
+}
+
+
+form {
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 30px 25px;
+	background-color: white;
+	border-radius: 40px;
+	margin: 40px 0;
+	left: 50%;
+	-moz-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	-webkit-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+form button {
+	margin-top: 35px;
+	background-color: white;
+	border: 1px solid #ff4a56;
+	line-height: 0;
+	font-size: 17px;
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 20px 15px;
+	border-radius: 60px;
+	color: #ff4a56;
+	font-weight: 100;
+	letter-spacing: 0.01em;
+	position: relative;
+	z-index: 1;
+}
+form .question {
+	position: relative;
+	padding: 10px 0;
+}
+form .question:first-of-type {
+	padding-top: 0;
+}
+form .question:last-of-type {
+	padding-bottom: 0;
+}
+form .question label {
+	transform-origin: left center;
+	color: #ff4a56;
+	font-weight: 100;
+	letter-spacing: 0.01em;
+	font-size: 17px;
+	box-sizing: border-box;
+	padding: 10px 15px;
+	display: block;
+	position: absolute;
+	margin-top: -65px;
+	z-index: 2;
+	pointer-events: none;
+}
+form .question input[type="number"] {
+	appearance: none;
+	background-color: none;
+	border: 1px solid #ff4a56;
+	line-height: 0;
+	font-size: 17px;
+	width: 100%;
+	display: block;
+	box-sizing: border-box;
+	padding: 25px 15px;
+	border-radius: 60px;
+	color: #ff4a56;
+	font-weight: 100;
+	letter-spacing: 0.01em;
+	position: relative;
+	z-index: 1;
+}
+form .question input[type="number"]:focus {
+	outline: none;
+	background: #ff4a56;
+	color: white;
+	margin-top: 30px;
+}
+form .question input[type="number"]:valid {
+	margin-top: 30px;
+}
+form .question input[type="number"]:focus ~ label {
+	-moz-transform: translate(0, -35px);
+	-ms-transform: translate(0, -35px);
+	-webkit-transform: translate(0, -35px);
+	transform: translate(0, -35px);
+}
+form .question input[type="number"]:valid ~ label {
+	text-transform: uppercase;
+	font-style: italic;
+	-moz-transform: translate(5px, -35px) scale(0.6);
+	-ms-transform: translate(5px, -35px) scale(0.6);
+	-webkit-transform: translate(5px, -35px) scale(0.6);
+	transform: translate(5px, -35px) scale(0.6);
+}
+#bmibtn:hover{
+background-color:#FF4A56FF ;
+color: white;
+}
+
+#bmibtn{
+border: 1px solid #FF4A56FF;
+border-radius: 36px;
+padding: 10px;
+outline: none;
+color: #FF4A56FF;
+margin-top: 20px!important;
+}
+
+	body{
+
+font-family: 'Noto Serif', serif;
+		}
+	@media screen and (max-width: 744px) {
+		#gym-page{
+			display: none;
+		}
+	}
+	@media screen and (min-width: 745px){
+			
+			#gym-page2{
+				display: none;
+			}
+		}
+			@media (orientation: landscape)
+			{
+				#gym-page2{
+					display: none;
+				}
+				#gym-page{
+					display:block;
+				}
+			}
+
+			#pstay span{
+				text-shadow: 2px 4px 5px white;
+				font-weight: normal;
+				font-size: 18vh;
+					font-family:'Faster One', cursive;
+
+			}
+			@media (max-width:425px){
+				#pstay span{
+					font-size:12vh!important;
+				}
+				#pstay{
+					font-size: 8vh!important;
+				}
+				}
+
+			}
+
+#bmi-gen{
+	list-style: none;
+}
+
+ul#bmi-gen li{
+  color: #AAAAAA;
+  display: inline;
+  position: relative;
+  float: left;
+  font-family: 'Lato', sans-serif;
+}
+
+ul#bmi-gen li input[type=radio]{
+  position: absolute;
+  visibility: hidden;
+}
+
+ul#bmi-gen li label{
+  display: block;
+  position: relative;
+  font-weight: 300;
+  font-size: 1.35em;
+  padding: 25px 25px 25px 80px;
+  margin: 0px auto;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+  	font-family: 'Lato', sans-serif;
+
+}
+
+
+ul li .check{
+  display: block;
+  position: absolute;
+  border: 5px solid #ff4a56;
+  border-radius: 100%;
+  height: 25px;
+  width: 25px;
+  top: 30px;
+  left: 20px;
+	z-index: 5;
+	transition: border .25s linear;
+	-webkit-transition: border .25s linear;
+}
+
+ul#bmi-gen li .check::before {
+  display: block;
+	content: '';
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 5px;
+	left: 5px;
+  margin: auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 5px solid #ff4a56;
+}
+
+input[type=radio]:checked ~ .check::before{
+  background: #ff4a56;
+}
+
+input[type=radio]:checked ~ label{
+  color: #ff4a56;
+}
+
+</style>
+</head>
+<body>
+
+<section id="nav-section" style="display: none!important;">
+		<ul class="mob-nav" type="none" style="text-align: center;">
+			<li><a href="index.html" style="text-decoration: none;color: orange" >HOME</a></li>
+			<li><a href="html/gymhp.html" style="text-decoration: none;color: orange" >GYM</a></li>
+			<li><a href="html/diet_corner.html" style="text-decoration: none;color: orange" >BALANCED DIET</a></li>
+			<li><a href="html/gym.html" style="text-decoration: none;color: orange" >VIDEOS</a></li>
+			<li class="nlogged" ><a href="html/login.html" style="text-decoration: none;color: orange" >LOG IN</a></li>
+			<li class="nlogged" ><a href="html/signup.html" style="text-decoration: none;color: orange" >SUGN UP</a></li>
+			<li style="display: none;" class="logged" ><a href="html/profile.html" style="text-decoration: none;color: orange" >PROFILE</a></li>
+			<li style="display: none;" class="logged logout" ><a href="#" style="text-decoration: none;color: orange" >LOG OUT</a></li>
+			<li style="cursor: pointer;"><i id="close" class="fas fa-times"></i></li>
+		</ul>
+
+	</section>
+<!-- particles.js container -->	
+<div style="z-index:9999" id="particles-js" >
+<section id="body">
+
+		<section id="stay active" style="background: transparent;text-align: center;">
+					 <nav class="navbar navbar-default " data-aos="fade-down" data-aos-duration="1000" style="height: 10vh;background: transparent!important;border: 0;margin:0!important;" >
+								<div class="container">
+										<div class="navbar-header" style="margin-top: 5vh">
+												<a class="navbar-brand" style="font-size: 2em;color:white" href="#"><strong>Stay Active</strong></a>
+												<button type="button" class="navbar-toggle" style="z-index: 999;" id="nav-btn">
+															<span class="icon-bar"></span>
+															<span class="icon-bar"></span>
+															<span class="icon-bar"></span>                        
+												</button>
+										</div>
+										<div class="container collapse navbar-collapse" id="myNavbar" style="margin-top: 5vh;">
+												<ul class="nav navbar-nav">
+													<li><a href="html/gymhp.html">Fitness club</a></li>
+													<li><a href="html/diet_corner.html">Diet Corner</a></li>
+													<li><a href="html/gym.html">Fitvid</a></li>
+												</ul>
+												<ul class="nav navbar-nav navbar-right">
+												<li style="display: none;" class="logged" ><a href="html/profile.html" style="font-size:1.2em;z-index: 10;"> <i class="fas fa-user-edit"></i> Edit Profile</a></li>
+												<li style="display: none;" class="logged logout" ><a href="#" style="font-size:1.2em;z-index: 10;"> <i class="fas fa-sign-out-alt"></i> Log Out</a></li>
+												<li class="nlogged" ><a href="html/signup.html" style="font-size:1.2em;z-index: 10;"> <i class="fas fa-user-plus"></i> Sign Up</a></li>
+												<li class="nlogged" ><a href="html/login.html" style="font-size:1.2em;z-index: 10;"> <i class="fas fa-sign-in-alt"></i> Log in</a></li>
+												</ul>
+										</div>
+								</div>
+						</nav>
+						<div class="container section" id="home">
+								<div class="col-md-12">
+										<p id="pstay" data-aos="zoom-in-up" data-aos-duration="1500"><span>s</span>TAY <span>a</span>CTIVE</p>
+								</div>
+						</div>
+						
+
+		</section>
+</div>
+
+<section id="gym-page"> 
+				<div class="splitview skewed">
+						<div class="panel bottom" data-aos="zoom-out-left" data-aos-duration="2000">
+								<div class="content">
+										<div class="description">
+												<p>Push your fitness further with our mix of facilities and we'll support you with advice on new and better ways to train.</p>
+												<a href="html/gymhp.html" class="button"><span>Gym </span></a> 
+										</div>
+										<img src="res/img/casual-close-up-colors-1954524.jpg" alt="Original">
+								</div>
+						</div>
+						<div class="panel top"> 
+								<div class="content">
+										<div class="description">
+												<h1>The fitness club</h1>
+										</div>
+										<img src="res/img/imageedit_4_3824551638.gif">
+								</div>
+						</div>
+						<div class="handle"></div>
+				</div>
+</section>
+<section id="gym-page2">
+				<div class="splitview2 skewed2">
+						<div class="panel2 top2">
+								<div class="content2">
+									<div class="pre-descripation" style=" width: 70vw;text-align: center;position: absolute;top: 2%;left: 15%;font-size: 14px" data-aos="zoom-out-up" data-aos-duration="1000">
+									Push your fitness further with our mix of facilities and we'll support you with advice on new and better ways to train.
+										</div>
+										<div class="description2" style="margin-top: 0!important" data-aos="zoom-in-right" data-aos-duration="1000">
+												<h1 id="h1f">fitness club</h1>
+										</div>
+										<img src="res/img/imageedit_4_3824551638.gif">
+										<a href="html/gymhp.html" style="position: absolute;bottom:2%;left: 30%" class="button"><span>Gym</span></a>
+								</div>
+						</div>
+				</div>
+</section>
+
+<section  id="bmi-calculator">
+				<div class="container-fluid">
+						<div class="col-lg-12 col-sm-12 col-xs-12 col-md-12" >
+								<div class="text-center">
+										<h1 class="bmi-h3" style="color: orange">calculate your bmi</h1>
+										<p data-aos="zoom-in" data-aos-duration="1500" style="color:#b4a52e;font-weight: bolder;">This BMI calculator measures your body fat by using your weight and height. Your BMI can indicate if you are underweight, normal, overweight or obese.
+										</p>
+								</div>
+								<div class="container" style="transition: 5s;">
+									<form class="col-lg-6 col-md-6 col-sm-12 col-xs-12" autocomplete="off" >
+										<div  style="" id="form">
+											<div class="question col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												 <input type="number" class="inp" min="0" required id="weight"/>
+													<label>Weight (in Kg)</label>
+											</div>
+											<div class="question col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<input type="number" class="inp" min="0" required id="height"/>
+													<label>Height (in cm)</label>
+											</div>
+											<div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0px 3vw">
+  												<ul id="bmi-gen">
+  													<li>
+    													<input type="radio" id="f-option" name="selector" checked>
+    														<label for="f-option">male</label>
+    														 <div class="check"><div class="inside"></div></div>
+  													</li>
+  
+  													<li>
+    													<input type="radio" id="s-option" name="selector">
+    														<label for="s-option">female</label>
+    															<div class="check"><div class="inside"></div></div>
+  													</li>
+  												</ul>
+											</div>
+												<span style="cursor: pointer;padding: 20px;text-align: center;"onclick="calculateBmi()" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="bmibtn" >Submit</span>
+									</div>
+									</form>
+							</div>
+								
+								<div class="container" id="bmi-disp" style="display: none;">
+									<div class="row ">
+										<div class="jumbotron text-center" style="background-image: url(res/img/Untitled.png);">
+									<h2 id="val" style="font-style: italic;color:#FF000AEC;font-weight: bolder;"></h2>
+								</div>
+									</div>
+									<div class="col-lg-3">
+										<div id="bm1" style="text-align: center;" class="bmi-box-no">
+											<h3 style="margin-bottom: 0;">Underweight</h3>
+											<p>< 17.1</p>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div id="bm2" style="text-align: center;" class="bmi-box-no">
+											<h3 style="margin-bottom: 0;">Normal</h3>
+											<p>17.1 - 24.19</p>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div id="bm3" style="text-align: center;" class="bmi-box-no">
+											<h3 style="margin-bottom: 0;">Overweight</h3>
+											<p>24.2 - 27.49</p>
+										</div>
+									</div>
+									<div class="col-lg-3">
+										<div id="bm4" style="text-align: center;" class="bmi-box-no">
+											<h3 style="margin-bottom: 0;">Obese</h3>
+											<p>> 27.5</p>
+										</div>
+									</div>
+								</div>
+						</div>  
+				</div>
+</section>
+<section  id="balanced-diet" class="col-md-12 col-sm-12 col-lg-12 col-xs-12" style="padding: 45px 0px;position: relative;background: black" >
+			 <div class=" text-center">
+					<h1 style="color: #eb3f3f" >Balanced Diet</h1>
+					<h3 class="bmi-h3" style="color: #e24e4ec4">NUTRITION FOR EVERY LIFE</h3>
+					<p class="text-center container" style="position: relative;font-size: 3vh;color:white" data-aos="fade-up" data-aos-duration="800">
+					A balanced diet is a diet that contains the right amounts of all the food groups. It includes fruit, vegetables, grains, dairy products, and protein. It does not include too much or too little of any kind of food.Eating wrong amounts of a food group, whether it be too much or too little, is called an "unhealthy diet" or an "imbalanced diet". A healthy diet is one that includes more foods that come from plants and fewer convenience foods
+					</p>
+					<a href="html/diet_corner.html" class="button"><span>balanced diet </span></a> 
+			 </div>
+</section>
+<section id="bottom-section" style="margin-bottom: 0!important;background: black" class="col-md-12 col-sm-12 col-xs-12 col-lg-12 text-center">
+			<p class="col-sm-12" >©STAY ACTIVE 2019</p>
+</section>
+</section>
+<!-- scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="lib/particles.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>
+	AOS.init();
+</script>
+<script src="lib/app2.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#nav-btn").click(function(){
+			$("#body").css("display","none");
+			$("#nav-section").css("display","flex");
+			$("body").css("overflow","hidden");
+		});
+
+		$("#close").click(function(){
+			$("#body").css("display","block");
+			$("#nav-section").css("display","none")
+			$("body").css("overflow-y","visible");
+		});
+	});
+</script>
+<script >
+	function calculateBmi() {
+		var weight = $("#weight").val();
+		var height = $("#height").val();
+		if(weight > 0 && height > 0){ 
+			var finalBmi = weight/(height/100*height/100);
+			if (finalBmi < 17.1) {
+				$("#bm1").removeClass().addClass('bmi-box');
+			}
+			else if (finalBmi >= 17.1 && finalBmi < 24.2 ) {
+				$("#bm2").removeClass().addClass('bmi-box');
+			}
+			else if (finalBmi >= 24.2 && finalBmi < 27.5 ) {
+				$("#bm3").removeClass().addClass('bmi-box');
+			}
+			else {
+				$("#bm4").removeClass().addClass('bmi-box');
+			}
+			$("#val").text('Your BMI is - '+ parseFloat(Math.round(finalBmi * 100) / 100).toFixed(2));
+			$("#form").fadeOut("slow");
+			setTimeout(function(){
+				$("#bmi-disp").fadeIn("slow");	
+			},500);
+		}
+	}
+</script>
+<script>
+	$(document).ready(function() {
+		$("input").keydown(function(e) {
+			if(!((e.keyCode > 95 && e.keyCode < 106) || (e.keyCode > 47 && e.keyCode < 58) || e.keyCode == 8 || e.keyCode == 9 || e.keyCode == 13)) {
+				return false;
+				}
+		});
+
+
+		$(".mob-nav li").not('#close').click(function(event) {
+			$("#close").trigger('click');
+		});
+	});
+</script>
+
+<link rel="stylesheet" type="text/css" href="plugins/swal/swal.css">
+<script src="plugins/swal/swal2.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+<script>
+	// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyB635hrvJuYQ06nHNO0V07gGDhO5FK8fEg",
+			authDomain: "wt-stay-active.firebaseapp.com",
+			databaseURL: "https://wt-stay-active.firebaseio.com",
+			projectId: "wt-stay-active",
+			storageBucket: "wt-stay-active.appspot.com",
+			messagingSenderId: "889505387559"
+		};
+		firebase.initializeApp(config);
+
+
+		firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				$(".nlogged").hide();
+				$(".logged").show();
+			}
+			else {
+				$(".logged").hide();
+				$(".nlogged").show();
+			}
+		});
+
+
+		$(".logout").click(function(event) {
+			firebase.auth().signOut();
+			Swal({
+				type: "info",
+				title: "You Are Now Logged Out!" ,
+				timer: 1500,
+				allowOutsideClick: false,
+				allowEscapeKey: false,
+				showConfirmButton: false,
+			});
+		});
+</script>
+</body>
+</html>
+

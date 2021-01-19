@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:700i');
+html{
+	scroll-behavior: smooth;
+}
+body{
+	margin: 0;
+	padding: 0;
+	background-color: black;
+	overflow-x: hidden;
+}
+h2{
+	color:  #ff751a!important;
+	transform: translateY(-40%);
+	float: left;
+	font-size: 2em;
+}
+
+
+#head h1{
+	font-weight: bold;
+	font-size: 14vw!important;
+	color: red;
+	font-style: italic;
+	font-family: font-family: 'Merriweather', serif;
+	letter-spacing: 2px;
+}
+#head1{
+	height: 10vh;
+	color: white;
+	text-align: center;
+	font-size: 4vh;
+}
+.heading{
+	color: white;
+}
+
+
+
+
+
+
+
+.image
+{
+	height: 30vh;
+
+}
+.col-sm-12 a{
+		display: inline-block;
+	border: 5px solid orange;
+	border-radius:20px;
+	padding: 10px;
+	text-decoration: none!important;
+	color: orange!important;
+	transform: scale(0);
+	transition: 0.5s;
+}
+    .col-md-4:hover .col-sm-12 a{
+	transform: scale(1);
+	transition: 0.5s;
+}
+
+
+#womenhead,#menhead{
+	height: 15vh;
+}
+
+#women,#men{
+	font-size: 20px;
+	float: right;
+	border-radius: 30px;
+	text-decoration: none;
+	color: white;
+	border: 1px solid red;
+	padding: 10px;
+	transition: 0.5s;
+	transform: scale(0.6);
+}
+#women:hover ,#men:hover{
+	transform: scale(1.1);
+	transition: 0.5s;
+}
+
+
+.menDay{
+	margin-top: 1%;
+	margin-bottom: 1%;
+	font-size: 17px;
+	color:white;
+	border: 2px dashed red;
+	border-radius: 30px;
+	padding-bottom: 30px;
+	padding-left: 10px;
+	transition: 0.5s;
+
+}
+.menDay:hover{
+	background-image: url("../res/img/back2.jpg");
+	background-size: 700px 300px;
+	transition: 0.5s;
+}
+
+
+
+
+
+
+.womenDay{
+	margin-top: 1%;
+	margin-bottom: 1%;
+	border: 2px groove orange;
+	padding-bottom: 10px;
+	border-radius: 30px;
+	padding-left: 10px;
+	color: white;
+	font-size: 17px;
+}
+h4{
+	font-size: 20px;
+	color: #ff3333;
+}
+.womenDay h3{
+	text-align: center;
+}
+
+#tip{
+	border: 0;
+	color: white;
+	font-size: 20px;
+	font-style: oblique;
+}
+
+.row2{
+	height: 32vh;
+}
+.row1{
+	height: 60vh;
+}
+
+#meninfo{
+	padding: 2vw;
+}
+.col-md-5 ,.col-md-12
+{
+	padding: 4vh
+}
+
+#d4{
+	padding: 5vw;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+	.row1, .row2 {
+		height: auto;
+	}
+}

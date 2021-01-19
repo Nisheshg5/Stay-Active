@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../res/img/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../css/util.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/swal/swal.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('../res/img/bg-02.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter email">
+						<input id="email" class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input id="pass" class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+<!--
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
+-->
+					<div class="text-center">
+						<a id="forgotpass" class="txt1" href="#">
+							Forgot Password?
+						</a>
+					</div>
+
+					<div class="container-login100-form-btn p-t-20">
+						<button id="login" type="button" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center  p-t-60">
+						<a class="txt1" href="signup.html">
+							Not A Member Yet? Become One Here!
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../plugins/animsition/js/animsition.min.js"></script>
+	<script src="../plugins/bootstrap/js/popper.js"></script>
+	<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../plugins/select2/select2.min.js"></script>
+	<script src="../plugins/daterangepicker/moment.min.js"></script>
+	<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+	<script src="../plugins/countdowntime/countdowntime.js"></script>
+	<script src="../lib/login.js"></script>
+	<script src="../plugins/swal/swal2.js"></script>
+
+
+
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+
+
+	<script>
+		
+		// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyB635hrvJuYQ06nHNO0V07gGDhO5FK8fEg",
+				authDomain: "wt-stay-active.firebaseapp.com",
+				databaseURL: "https://wt-stay-active.firebaseio.com",
+				projectId: "wt-stay-active",
+				storageBucket: "wt-stay-active.appspot.com",
+				messagingSenderId: "889505387559"
+			};
+			firebase.initializeApp(config);
+
+
+
+			$(document).ready(function() {
+				$("#forgotpass").click(function(e) {
+					swal({
+						type: "info",
+						title: "Enter Your Email Address",
+						text: "And We Will Send A Password Reset Email To It",
+						backdrop: true,
+						showCancelButton: true,
+						confirmButtonColor: '#3085d6',
+						cancelButtonColor: '#d33',
+						confirmButtonText: 'Continue!',
+						cancelButtonText: 'Cancel!',
+						focusCancel: false,
+					})
+					.then((result) => {
+						if (result.value) {
+							(async function getEmail () {
+								const {value: email} = await Swal({
+									title: 'Please Enter Your Email Address',
+									input: 'email',
+								})
+
+								if (email) {
+									var auth = firebase.auth();
+									var emailAddress = email.trim();
+
+									auth.sendPasswordResetEmail(emailAddress).then(function() {
+										// Email sent.
+										Swal({
+											type: "success",
+											title: 'Email Sent',
+											text: 'Please Reset Your Password And Try Again',
+											timer: 2000,
+											showConfirmButton: true,
+										});
+									}).catch(function(error) {
+										// An error happened.
+										Swal({
+											type: "error",
+											title: "Email Couldn't be Sent",
+											text: 'Please Try Again',
+											timer: 3000,
+											showConfirmButton: true,
+										});
+									});
+									
+								}
+							})()
+						}
+					});
+				});
+			});
+
+
+
+			$(document).ready(function() {
+			
+				$("input").keydown(function(e) {
+					console.log(e.keyCode);
+					if (e.keyCode == 13) {
+						$("#login").trigger('click');
+					}
+				});
+
+				// Login 
+				$("#login").click(function(e) {
+					Swal({
+							type: "info",
+							title: 'Logging In',
+							html: "Please Wait...",
+							showConfirmButton: false,
+						})
+					var email = $("#email").val().trim();
+					var pass = $("#pass").val().trim();
+
+					const auth = firebase.auth();
+
+					const promise = auth.signInWithEmailAndPassword(email, pass);
+					promise.catch(e => 
+						Swal({
+							type: "error",
+							title: 'Login Failed',
+							html: '' + e.message + "<br> Please try again",
+							showConfirmButton: true,
+						})
+					);
+				});
+
+
+
+				// Add a real-time listner
+				firebase.auth().onAuthStateChanged(firebaseUser => {
+					if (firebaseUser) {
+						swal.close();
+						Swal({
+							type: "success",
+							title: 'Logged In Successfully',
+							html: 'Welcome ' + firebaseUser.displayName + " <br> Redirecting...",
+							timer: 2000,
+							showConfirmButton: false,
+						});
+						setTimeout(function() {
+							window.history.back();
+						},2000);
+						console.log(firebaseUser);
+						// Check If Email Is Verified
+						console.log("Email Is Verified: "+ firebase.auth().currentUser.emailVerified);
+					}
+					else {
+						console.log("Not Logged In");
+					}
+				});
+			});
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+	@import url('https://fonts.googleapis.com/css?family=Lobster|Playfair+Display|Ubuntu');
+*{
+	box-sizing: border-box;
+	user-select: none;
+}
+
+body{
+	margin: 0;
+	padding: 5px;
+	overflow-x: hidden;
+	width: 100vw;
+	height: 100vh;
+}
+
+.logo a{
+	text-decoration:none;
+	color: #FF3333;
+	text-align: center;
+}
+
+.logo a:hover{
+	cursor: pointer;
+}
+
+.logo span{
+	font-size: 30px;
+	font-style: oblique;
+}
+
+#logo{
+	padding-left: 20px;
+	font-size: 40px;
+	font-style: oblique;
+
+}
+
+.video {
+	position: relative;
+	width: 100vw;
+	margin-top:7%;
+	height: 44vw;
+	user-select: none;
+}
+
+.invid {
+	position: absolute;
+	float: left;
+	top: 30%;
+	left: 15%;
+	height: auto;
+	font-size: 2vw;
+	font-family: 'lobster',cursive;
+	color:white;
+}
+
+
+#backvid{
+	min-width: 100%;
+	max-height: 99%;
+	margin-top: -35px;
+}
+table{
+	border-collapse: collapse;
+	padding: 10px;
+	width: 40%;
+	text-align: center;
+	margin:2%;
+	float: left;
+	color:white;
+	border:1px solid white;
+	margin-top: 1%;
+}
+
+
+#heading{
+	font-size: 40px;
+	font-family: gabriola;
+}
+
+table #heading{
+	font-size: 40px;
+}
+
+
+.container{
+	padding: 0 6px;
+	width:30%;
+	float: left;
+}
+
+.head {
+	text-align-last: left;
+}
+
+.h2 {
+	font-family: "lobster",cursive;
+	font-size: 3vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Hover Checkbox */
+#filters {
+	z-index: 99;
+	position: fixed;
+	right: 0;
+}
+
+#filters a {
+	position: fixed;
+	text-align: right;
+	right: -180px;
+	transition: 0.3s;
+	padding: 15px;
+	width: 180px;
+	text-decoration: none;
+	font-size: 20px;
+	color: white;
+	border-radius: 50px 0 0 50px;
+}
+
+#filters a:hover {
+	right: 10;
+}
+
+#cbdf1 {
+	top: calc(25% + 20px);
+	background-color: #555;
+}
+
+#cbdf2 {
+	top: calc(25% + 85px);
+	background-color: #555;
+}
+
+#cbdf3 {
+	top: calc(25% + 150px);
+	background-color: #555;
+}
+
+#cbdf4 {
+	top: calc(25% + 215px);
+	background-color: #555
+}
+
+#cbdf5 {
+	top: calc(25% + 280px);
+	background-color: #555
+}
+
+
+
+
+/* The filter */
+.filter {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	cursor: pointer;
+	font-size: 22px;
+	user-select: none;
+	margin-bottom: 0;
+}
+
+/* Hide the browser's default checkbox */
+.filter input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+	margin-top: 3px;
+}
+
+/* On mouse-over, add a grey background color */
+.filter:hover input ~ .checkmark {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.filter input:checked ~ .checkmark {
+	background-color: #555;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.filter input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.filter .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.album {
+	font-family: 'Josefin Sans', sans-serif;
+	text-align: justify;
+	text-align-last: justify;
+	padding-left: 2%;
+	padding-right: 3%;
+}
+.responsive {
+	cursor: pointer;
+	box-sizing: border-box;
+	position: relative;
+	width: 30%;
+	display: inline-block;
+	text-align: center;
+	text-align-last: center;
+}
+
+.card {
+	display: flex;
+	position: relative;
+	margin: 5% auto 1% auto;
+	width: 30vw;
+	transform-style: preserve-3d;
+	perspective: 600px;
+	transition: 0.5s;
+}
+
+.card .front {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-shadow: 0 0 2px;
+	background: rgba(25, 25, 25);
+	backface-visibility: hidden;
+	transform: rotateX(0deg);
+	transition: 0.5s
+}
+
+.card .front img {
+	width: 30vw;
+}
+.card .front h3 {
+	color: white;
+	padding: 20px;
+}
+
+.card:hover .front {
+	transform: rotateX(-180deg)
+}
+
+.card .back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	text-shadow: 0 0 4px;
+	backface-visibility: hidden;
+	transform: rotateX(180deg);
+	transition: 0.5s
+}
+
+.card .back::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: rgba(30, 30, 30);
+}
+
+.card:hover .back {
+	transform: rotateX(0deg)
+}
+
+.card .back .details{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	width: 100%;
+	text-align: center;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.card .back .details h4{
+	margin: 0;
+	padding: 0;
+	font-size: 24px;
+	color: #fff;
+}
+
+.card .back .details h5{
+	margin-top: 5px;
+	padding-top: 0;
+	color: #a7a7a7;
+	font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+	.album {
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+	.responsive {
+		width: 45%;
+		padding-bottom: 50px;
+	}
+
+	.card {
+		margin: 5% auto 1% auto;
+		width: 45vw;
+	}
+	.card .front img {
+		width: 45vw;
+	}
+}
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+	.album {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+	.responsive {
+		width: 90%;
+		padding-bottom: 30px;	
+	}
+
+	.card {
+		margin: 5% auto 1% auto;
+		width: 90vw;
+	}
+	.card .front img {
+		width: 90vw;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#df {
+	position: fixed;
+	opacity: 0;
+	transition: 0.5s;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	height: 100%;
+	box-sizing: content-box;
+	margin: 0 auto;
+}
+#dfcon {
+	height: 100%;
+	margin: 0 auto;
+	overflow-y: auto;
+}
+
+#df video{
+	width: 100%;
+	z-index: 0;
+}
+
+.content {
+	display: none;
+	padding: 20px;
+	word-spacing: 3px;
+	position: relative;
+	background-color: rgba(0,0,0,0.5);
+}
+
+.content b {
+	color: rgba(255,255,255);
+}
+
+#cross {
+	z-index: 1000;
+	position: fixed;
+	right: 20px;
+	font-size: 50px;
+	z-index: 999;
+	animation-name: colorchange;
+	animation-iteration-count: infinite;
+	animation-duration: 30s;
+	user-select: none;
+}
+
+@keyframes colorchange {
+	0%   {color: red;}
+	25%  {color: yellow;}
+	50%  {color: blue;}
+	75%  {color: green;}
+	100% {color: red;}
+}
+
+#cross:hover {
+	cursor: pointer;
+}
+
+.body {
+	color: rgba(200,255,255);
+}
+
+
+
+@media only screen and (min-width: 768px) {
+	.text{
+		font-size: 16px;
+	}
+}
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+ html, body {
+     margin: 0;
+     width: 100%;
+     height: 100%;
+}
+
+h1 {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     font-family: 'Poppins'!important;
+     text-transform: uppercase;
+     color: #fff!important;
+     text-align: center;
+     font-weight: 600;
+     font-size: 2.5em;
+     letter-spacing: 30px; 
+}
+
+@media only screen and (max-width: 768px) {
+     h1 {
+          font-size: 12px;
+          letter-spacing: 4px;
+     }
+}
+
+.list-inline{
+     position: absolute;
+     bottom: 10vh;
+     left: 50vw;
+     transform: translateX(-50%);
+     border-bottom: 1px solid white
+}
+.list-inline li a img{
+     width: 30px;
+     height:30px;
+     margin-left: 20px;
+     margin-bottom: 10px;
+     transform: translateX(-30%);
+}
+.list-inline li:hover a img
+{
+	transition: .5s;
+	margin-bottom: 15px;
+     transform: translateX(-30%) scale(1.5);
+}
+

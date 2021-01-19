@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V13</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="../res/img/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="../plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="../css/util.css">
+	<link rel="stylesheet" type="text/css" href="../css/signup.css">
+	<link rel="stylesheet" type="text/css" href="../plugins/swal/swal.css">
+</head>
+<body style="background-color: #999999;">
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="login100-more" style="background-image: url('../res/img/bg-01.jpg');"></div>
+
+			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-59">
+						Sign Up
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate="Name is required">
+						<span class="label-input100">Full Name</span>
+						<input id="name" class="input100" type="text" name="name" placeholder="Name...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<span class="label-input100">Email</span>
+						<input id="email" class="input100" type="text" name="email" placeholder="Email addess...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input id="uname" class="input100" type="text" name="username" placeholder="Username...">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Mobile Number is required">
+						<span class="label-input100">Mobile Number</span>
+						<input id="mno" class="input100" type="number" name="username" placeholder="01234567890">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Age is required">
+						<span class="label-input100">Age</span>
+						<input id="age" class="input100" type="number" name="username" placeholder="18">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input id="pass" class="input100" type="password" name="pass" placeholder="*************">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Passwords Do Not Match">
+						<span class="label-input100">Confirm Password</span>
+						<input id="pass2" class="input100" type="password" name="pass" placeholder="*************">
+						<span class="focus-input100"></span>
+					</div>
+<!--
+					<div class="wrap-input100 validate-input" data-validate = "Repeat Password is required">
+						<span class="label-input100">Repeat Password</span>
+						<input class="input100" type="text" name="repeat-pass" placeholder="*************">
+						<span class="focus-input100"></span>
+					</div>
+-->
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button id="sup" type="button" class="login100-form-btn">
+								Sign Up
+							</button>
+						</div>
+
+						<a href="login.html" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+							Login
+							<i class="fa fa-long-arrow-right m-l-5"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../plugins/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../plugins/animsition/js/animsition.min.js"></script>
+	<script src="../plugins/bootstrap/js/popper.js"></script>
+	<script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../plugins/select2/select2.min.js"></script>
+	<script src="../plugins/daterangepicker/moment.min.js"></script>
+	<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+	<script src="../plugins/countdowntime/countdowntime.js"></script>
+	<script src="../lib/signup.js"></script>
+
+	<script src="../plugins/swal/swal2.js"></script>
+
+
+
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
+
+	<script>
+
+		$(document).ready(function() {
+			
+			$("input").keydown(function(e) {
+				if (e.keyCode == 13) {
+					$("button").trigger('click');
+				}
+			});
+
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyB635hrvJuYQ06nHNO0V07gGDhO5FK8fEg",
+				authDomain: "wt-stay-active.firebaseapp.com",
+				databaseURL: "https://wt-stay-active.firebaseio.com",
+				projectId: "wt-stay-active",
+				storageBucket: "wt-stay-active.appspot.com",
+				messagingSenderId: "889505387559"
+			};
+			firebase.initializeApp(config);
+			var firestore = firebase.firestore();
+
+
+			// Sign-Up
+			$("#sup").click(function(e) {
+				if ($("*").hasClass('alert-validate') || $("#name").val().length < 5 || $("#email").val().length < 10 || $("#uname").val().length < 5 || $("#mno").val().length < 10 || $("#age").val().length < 2 || $("#pass").val().length < 6) {
+					Swal({
+						type: "warning",
+						title: 'Please Fill Correct Information',
+						text: 'And Try Again!',
+						timer: 1500,
+						showConfirmButton: false,
+					});
+				}
+				else {
+					Swal({
+						type: "info",
+						title: 'Creating Account',
+						text: 'Please Be Patient!',
+						showConfirmButton: false,
+					});
+					var email = $("#email").val().trim();
+					var password = $("#pass").val().trim();
+
+					const auth = firebase.auth();
+
+					const promise = auth.createUserWithEmailAndPassword(email, password);
+					promise.catch(e => 
+						Swal({
+							type: "error",
+							title: "Account Couldn't Be Created" ,
+							text: ''+e.message,
+							timer: 3000,
+							showConfirmButton: true,
+						})
+					);
+					if(promise.catch){
+						firebase.auth().onAuthStateChanged((user) => {
+							if (user) {
+								console.log("Account Created Succesfully");
+								console.log(user.uid);
+
+								var uname = $("#uname").val().trim();
+								var email = $("#email").val().trim();
+								var name = $("#name").val().trim();
+								var pass = $("#pass").val().trim();
+								var mno = $("#mno").val().trim();
+								var age = $("#age").val().trim();
+
+
+
+								user.updateProfile({displayName: ""+name});
+								user.updateProfile({phoneNumber: ""+mno});
+
+
+
+
+
+
+								var docRef = firestore.collection("users").doc(user.uid);
+								docRef.set({
+									name: name,
+									username: uname,
+									email: email,
+									mno: mno,
+									age: age,
+									facebook: "http://facebook.com/",
+									twitter: "http://twitter.com/",
+									linkedin: "http://linkedin.com/",
+									instagram: "http://instagram.com/",
+									country: "",
+									state: "",
+									city: "",
+									street: "",
+									houseno: "",
+									zip: "",
+									healthtask: ""
+								}).then(function() {
+									console.log("wrote data with success");
+								}).catch(function(error) {
+									Swal({
+										type: "error",
+										title: "wrote data with failure" ,
+										text: ''+error,
+										timer: 3000,
+										showConfirmButton: true,
+									})
+									user.delete().then(function() {
+										console.log("User deleted");
+									}).catch(function(error) {
+										console.log("An error happened during removing account.");
+									});
+									return false;
+								});
+
+
+
+
+
+								setTimeout(function() {
+									user.sendEmailVerification().then(function() {
+											console.log("Email Sent");
+											Swal({
+												type: "success",
+												title: "Account Created Succesfully." ,
+												html: 'Please Verify Your Email To Gain Full Functionality. <br> Redirecting To Home Page...',
+												timer: 3000,
+												showConfirmButton: false,
+											})
+											setTimeout(function() {
+												window.location = '../index.html'
+											},3000)
+										}).catch(function(error) {
+											Swal({
+												type: "error",
+												title: "Verification Email Could Not Be Sent" ,
+												text: ''+error,
+												timer: 3000,
+												showConfirmButton: true,
+											})
+											firestore.collection("users").doc(user.uid).delete().then(function() {
+												console.log("Document successfully deleted!");
+											}).catch(function(error) {
+												console.error("Error removing document: ", error);
+											});
+
+											user.delete().then(function() {
+												console.log("User deleted");
+											}).catch(function(error) {
+												console.log("An error happened during removing account.");
+											});
+											return false;
+										});
+								}, 1000);
+							}
+						});
+					}
+				}
+				return 0;
+			});
+		});
+	</script>
+</body>
+</html>
